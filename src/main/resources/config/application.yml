@@ -1,0 +1,30 @@
+info:
+  build:
+    artifact: @project.artifactId@
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+
+spring:
+  application:
+    name: @project.name@
+
+server:
+  port: 9001
+  tomcat:
+    basedir: .
+    access-log-enabled: true
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:9099/eureka}
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+  instance:
+    preferIpAddress: true
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+
